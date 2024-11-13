@@ -1,5 +1,7 @@
 import { Mosaic, MosaicWindow, MosaicBranch } from "react-mosaic-component";
 import "react-mosaic-component/react-mosaic-component.css";
+import "@blueprintjs/core/lib/css/blueprint.css";
+import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import CompanyWidget from "./components/CompanyWidget";
 import { useCompanyController } from "./controllers/CpmpanyController";
 import CompanyDropdown from "./components/CompanyDropdown";

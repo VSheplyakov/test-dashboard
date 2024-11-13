@@ -7,7 +7,10 @@ type CompanySelectProps = {
   selectedCompanyName: string | null;
 };
 
-const CompanySelect: React.FC<CompanySelectProps> = ({ id, selectedCompanyName }) => {
+const CompanySelect: React.FC<CompanySelectProps> = ({
+  id,
+  selectedCompanyName,
+}) => {
   const { companies, setSelectedCompany } = useCompanyController();
 
   return (
@@ -16,9 +19,7 @@ const CompanySelect: React.FC<CompanySelectProps> = ({ id, selectedCompanyName }
       onChange={(e) => setSelectedCompany(id, e.target.value)}
       className="p-1 border rounded-md w-60 focus:outline-none"
     >
-      <option value="Select company">
-        Select company
-      </option>
+      <option value="Select company">Select company</option>
       {companies.map((company) => (
         <option key={company.id} value={company.name}>
           {company.name}
