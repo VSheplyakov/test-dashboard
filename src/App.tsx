@@ -5,8 +5,6 @@ import {
   MosaicContext,
 } from "react-mosaic-component";
 import "react-mosaic-component/react-mosaic-component.css";
-import "@blueprintjs/core/lib/css/blueprint.css";
-import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import CompanyWidget from "./components/CompanyWidget";
 import { useCompanyController } from "./controllers/CompanyController";
 import CompanyDropdown from "./components/CompanyDropdown";
@@ -59,7 +57,7 @@ function App() {
   };
 
   return (
-    <div style={{ height: "100dvh" }} data-testid="app">
+    <div className="h-screen">
       <Mosaic<ViewId>
         renderTile={renderTile}
         initialValue={{
@@ -72,7 +70,6 @@ function App() {
             splitPercentage: 50,
           },
         }}
-        className="mosaic-blueprint-theme"
       />
     </div>
   );
