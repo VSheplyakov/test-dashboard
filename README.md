@@ -19,7 +19,7 @@ A simple dashboard application for displaying information about companies, built
 
    ```bash
    git clone https://github.com/VSheplyakov/test-dashboard.git
-   cd company-dashboard
+   cd test-dashboard
    ```
 
 2. **Install dependencies**:
