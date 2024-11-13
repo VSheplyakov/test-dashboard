@@ -18,7 +18,7 @@ A simple dashboard application for displaying information about companies, built
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/yourusername/company-dashboard.git
+   git clone https://github.com/VSheplyakov/test-dashboard.git
    cd company-dashboard
    ```
 
