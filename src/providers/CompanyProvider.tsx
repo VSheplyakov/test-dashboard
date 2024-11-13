@@ -1,8 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import companies from "../data/companies-lookup.json";
-import { Company } from "../utils/types/types";
-
-export type ViewId = "a" | "b" | "c";
+import { Company, ViewId } from "../utils/types/types";
 
 interface CompanyProviderProps {
   children: React.ReactNode;
@@ -14,9 +12,7 @@ interface CompanyContextProps {
   setSelectedCompany: (id: ViewId, companyName: string) => void;
 }
 
-const CompanyContext = createContext<CompanyContextProps | null>(
-  null
-);
+const CompanyContext = createContext<CompanyContextProps | null>(null);
 
 export const CompanyProvider: React.FC<CompanyProviderProps> = ({
   children,
@@ -52,7 +48,7 @@ export const CompanyProvider: React.FC<CompanyProviderProps> = ({
   );
 };
 
-export const useCompanyContext = () => {
+export const useCompanyProvider = () => {
   const context = useContext(CompanyContext);
   if (!context) {
     throw new Error("useCompanyContext must be used within a CompanyProvider");

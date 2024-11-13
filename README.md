@@ -53,13 +53,13 @@ This will create a `build` folder with optimized production files.
 1. **Build the Docker image**:
 
    ```bash
-   docker build -t company-dashboard .
+   docker build -t test-dashboard .
    ```
 
 2. **Run the Docker container**:
 
    ```bash
-   docker run -p 3000:80 company-dashboard
+   docker run -p 3000:80 test-dashboard
    ```
 
 The application will be accessible at `http://localhost:3000`.

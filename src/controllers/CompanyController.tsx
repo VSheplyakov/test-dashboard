@@ -1,9 +1,10 @@
-import { useCompanyContext, ViewId } from "../providers/CompanyProvider";
+import { useCompanyProvider } from "../providers/CompanyProvider";
+import { ViewId } from "../utils/types/types";
 
 export const useCompanyController = () => {
   const { selectedCompanies, companies, setSelectedCompany } =
-    useCompanyContext();
-    
+    useCompanyProvider();
+
   const getSelectedCompany = (id: ViewId) =>
     companies.find((company) => company.name === selectedCompanies[id]);
 
