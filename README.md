@@ -59,7 +59,7 @@ This will create a `build` folder with optimized production files.
 2. **Run the Docker container**:
 
    ```bash
-   docker run -p 3000:3000 company-dashboard
+   docker run -p 3000:80 company-dashboard
    ```
 
 The application will be accessible at `http://localhost:3000`.

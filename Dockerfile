@@ -1,27 +1,23 @@
-  # Stage 1: Build the application
-  FROM node:14-alpine AS build
-  
-  # Set the working directory
-  WORKDIR /app
-  
-  # Copy the package.json and install dependencies
-  COPY package.json package-lock.json ./
-  RUN npm install
-  
-  # Copy the rest of the application code
-  COPY . .
-  
-  # Build the React application
-  RUN npm run build
-  
-  # Stage 2: Serve the application
-  FROM nginx:stable-alpine
-  
-  # Copy the built React files from the previous stage
-  COPY --from=build /app/build /usr/share/nginx/html
-  
-  # Expose port 80 to the outside
-  EXPOSE 80
-  
-  # Start the Nginx server
-  CMD ["nginx", "-g", "daemon off;"]
+# Крок 1: Базовий образ для Node.js
+FROM node:16 AS build
+
+# Крок 2: Додати робочу директорію
+WORKDIR /app
+
+# Крок 3: Копіюємо файли та встановлюємо залежності
+COPY package*.json ./
+RUN npm install
+
+# Крок 4: Копіюємо решту файлів і будуємо проєкт
+COPY . .
+RUN npm run build
+
+# Крок 5: Використовуємо lightweight image для сервака
+FROM nginx:alpine
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Крок 6: Експонуємо порт для Nginx
+EXPOSE 80
+
+# Крок 7: Запускаємо Nginx
+CMD ["nginx", "-g", "daemon off;"]
