@@ -1,9 +1,9 @@
-import { Mosaic, MosaicWindow, MosaicBranch } from "react-mosaic-component";
+import { Mosaic, MosaicWindow, MosaicPath } from "react-mosaic-component";
 import "react-mosaic-component/react-mosaic-component.css";
 import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import CompanyWidget from "./components/CompanyWidget";
-import { useCompanyController } from "./controllers/CpmpanyController";
+import { useCompanyController } from "./controllers/CompanyController";
 import CompanyDropdown from "./components/CompanyDropdown";
 
 export type ViewId = "a" | "b" | "c";
@@ -11,7 +11,7 @@ export type ViewId = "a" | "b" | "c";
 function App() {
   const { selectedCompanies, getSelectedCompany } = useCompanyController();
 
-  const renderTile = (id: ViewId, path: MosaicBranch[]) => {
+  const renderTile = (id: ViewId, path: MosaicPath) => {
     const selectedCompany = getSelectedCompany(id);
 
     return (
@@ -40,7 +40,7 @@ function App() {
   };
 
   return (
-    <div className="h-screen" data-testid="app">
+    <div style={{height:"100dvh"}} data-testid="app">
       <Mosaic<ViewId>
         renderTile={renderTile}
         initialValue={{
